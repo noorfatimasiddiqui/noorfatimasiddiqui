@@ -1,0 +1,811 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="description" content="Noor Fatima Siddiqui - Digital Marketer & SEO Expert. Strategic growth, technical SEO, and creative marketing solutions.">  
+    <title>Noor Fatima Siddiqui | Digital Marketer & SEO Expert</title>  
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">  
+
+    <style>  
+        :root {  
+            --bg-main: #fdfaf9;           
+            --bg-card: #ffffff;           
+            --accent: #f4a7bb;            
+            --accent-hover: #e08ea3;      
+            --text-main: #4a3f3f;         
+            --text-dim: #8c7e7e;          
+            --nav-bg: rgba(253, 250, 249, 0.95);  
+            --border-color: #f0f0f0;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);  
+        }
+
+        [data-theme="dark"] {
+            --bg-main: #120d0e;
+            --bg-card: #1a1415;
+            --accent: #f4a7bb;
+            --accent-hover: #e08ea3;
+            --text-main: #f5e6e8;
+            --text-dim: #a89496;
+            --nav-bg: rgba(18, 13, 14, 0.95);
+            --border-color: #332729;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }  
+
+        body {  
+            font-family: 'Inter', sans-serif;  
+            background-color: var(--bg-main);  
+            color: var(--text-main);  
+            line-height: 1.6;  
+            overflow-x: hidden;  
+            transition: background 0.3s, color 0.3s;
+        }  
+
+        ul { list-style: none; }  
+        a { text-decoration: none; color: inherit; }  
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }  
+        section { padding: 80px 0; }  
+
+        .btn {  
+            display: inline-block;  
+            padding: 12px 32px;  
+            border-radius: 50px;   
+            font-weight: 600;  
+            cursor: pointer;  
+            transition: 0.3s;  
+            border: 2px solid transparent;  
+        }  
+
+        .btn-primary { background-color: var(--accent); color: white; }  
+        .btn-primary:hover {  
+            transform: translateY(-3px);  
+            background-color: var(--accent-hover);  
+            box-shadow: 0 8px 20px rgba(244, 167, 187, 0.3);  
+        }  
+
+        /* --- NAVBAR --- */  
+        nav {  
+            height: 80px;  
+            display: flex;  
+            align-items: center;  
+            position: fixed;  
+            top: 0;  
+            width: 100%;  
+            background: var(--nav-bg);  
+            backdrop-filter: blur(10px);  
+            z-index: 1000;  
+            border-bottom: 1px solid rgba(0,0,0,0.05);  
+            transition: var(--transition);
+        }  
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-main); }  
+        .logo span { color: var(--accent); }  
+        .nav-links { display: flex; gap: 25px; align-items: center; }  
+        .nav-links a { font-weight: 500; font-size: 0.9rem; transition: 0.3s; }  
+        .nav-links a:hover { color: var(--accent); }  
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .theme-toggle:hover { transform: rotate(15deg); }
+
+        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main); }  
+
+        /* --- HERO --- */  
+        .hero {  
+            min-height: 100vh;  
+            display: flex;  
+            align-items: center;  
+            padding-top: 80px;  
+            background: radial-gradient(circle at top right, rgba(244, 167, 187, 0.15), transparent);  
+            transition: var(--transition);
+        }  
+        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }  
+        .hero-content h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); margin-bottom: 20px; line-height: 1.1; }  
+        .hero-content span { color: var(--accent); }  
+        .hero-image {  
+            position: relative;  
+            background: var(--accent);  
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;  
+            animation: blob 9s ease-in-out infinite;  
+            overflow: hidden;  
+            box-shadow: 0 15px 35px rgba(244, 167, 187, 0.2);
+        }  
+        .hero-image img { width: 100%; display: block; filter: grayscale(10%); }  
+
+        @keyframes blob {  
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }  
+            50% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }  
+        }  
+
+        /* --- JOURNEY SECTION --- */  
+        .journey-grid {  
+            display: grid;  
+            grid-template-columns: 1.2fr 0.8fr;  
+            gap: 50px;  
+            align-items: center;  
+            margin-top: 40px;  
+        }  
+        .journey-text-box {  
+            background: var(--bg-card);  
+            padding: 40px;  
+            border-radius: 20px;  
+            border-left: 5px solid var(--accent);  
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);  
+            min-height: 200px;  
+            transition: var(--transition);
+        }  
+        #typing-text {  
+            font-size: 1.1rem;  
+            color: var(--text-main);  
+            display: inline;  
+        }  
+        .cursor {  
+            display: inline-block;  
+            width: 3px;  
+            background-color: var(--accent);  
+            margin-left: 5px;  
+            animation: blink 0.7s infinite;  
+        }  
+        @keyframes blink {  
+            0%, 100% { opacity: 1; }  
+            50% { opacity: 0; }  
+        }  
+
+        .journey-points li {  
+            display: flex;  
+            align-items: center;  
+            gap: 15px;  
+            margin-bottom: 25px;  
+            font-weight: 500;  
+            color: var(--text-main);  
+        }  
+        .journey-points i {  
+            color: var(--accent);  
+            font-size: 1.2rem;  
+        }  
+
+        /* --- SECTION TITLES --- */  
+        .section-title { text-align: center; margin-bottom: 50px; }  
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 10px; color: var(--text-main); }  
+        .section-title .bar { width: 40px; height: 3px; background: var(--accent); margin: 0 auto; border-radius: 2px; }  
+
+        /* --- TECHNICAL EXPERTISE --- */  
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }  
+        .skill-item { background: var(--bg-card); padding: 25px; border-radius: 20px; transition: var(--transition); border: 1px solid var(--border-color); }  
+        .skill-item:hover { border-color: var(--accent); transform: translateY(-5px); }  
+        .skill-item i { font-size: 2.5rem; color: var(--accent); margin-bottom: 15px; }  
+        .skill-item p { font-weight: 600; font-size: 1rem; margin-bottom: 10px; }  
+
+        /* Progress Bar Enhancements */
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 3px;
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.1, 0.8, 0.2, 1);
+        }
+
+        /* --- PROJECTS SECTION --- */  
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }  
+        .project-card { background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); transition: var(--transition); }  
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }  
+        .project-img { width: 100%; height: 240px; background: #eee; object-fit: cover; display: block; }  
+        .project-info { padding: 25px; }  
+        .project-info h3 { margin-bottom: 10px; color: var(--text-main); }  
+        .project-info p { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 15px; }  
+        .project-tag { display: inline-block; padding: 5px 12px; background: rgba(244, 167, 187, 0.15); color: var(--accent); border-radius: 15px; font-size: 0.8rem; font-weight: 600; }  
+
+        /* --- TOOLS I USE --- */
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 25px; }
+        .tool-item {
+            background: var(--bg-card);
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        .tool-item:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(244, 167, 187, 0.12);
+        }
+        .tool-item i {
+            font-size: 2.3rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+            display: block;
+        }
+        .tool-item p {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        /* --- SERVICES --- */  
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }  
+        .service-card { background: var(--bg-card); padding: 40px; border-radius: 25px; transition: var(--transition); border: 1px solid var(--border-color); }  
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(244, 167, 187, 0.15); }  
+
+        /* --- TESTIMONIALS SECTION --- */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .testimonial-card {
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(244, 167, 187, 0.1);
+        }
+        .testimonial-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 4rem;
+            color: rgba(244, 167, 187, 0.2);
+            font-family: serif;
+        }
+        .testimonial-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .testimonial-user img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .testimonial-user h5 {
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+        .testimonial-user p {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* --- FAQ SECTION --- */  
+        .faq-list { max-width: 800px; margin: 0 auto; }  
+        .faq-item { background: var(--bg-card); margin-bottom: 15px; border-radius: 15px; overflow: hidden; border: 1px solid var(--border-color); }  
+        .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; font-weight: 600; color: var(--text-main); }  
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.3s ease; color: var(--text-dim); }  
+        .faq-item.active .faq-answer { padding-bottom: 20px; max-height: 200px; }  
+        .faq-item.active i { transform: rotate(180deg); }  
+
+        /* --- CONTACT --- */  
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }  
+        .contact-card { background: var(--bg-card); padding: 30px; border-radius: 20px; text-align: center; border: 1px solid var(--border-color); }  
+        .contact-card i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }  
+        .contact-card h4 { color: var(--text-main); margin-bottom: 5px; }
+        .contact-card a { color: var(--text-dim); }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
+        }
+        .floating-whatsapp:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background: var(--bg-main);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        /* RESPONSIVE */  
+        @media (max-width: 992px) {  
+            .hero-grid, .journey-grid { grid-template-columns: 1fr; text-align: center; }  
+            .hero-image { width: 250px; margin: 0 auto; order: -1; }  
+            .nav-links { display: none; }  
+            .hamburger { display: block; }  
+            .journey-text-box { border-left: none; border-top: 5px solid var(--accent); }  
+
+            .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-card);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px 25px 30px;
+                gap: 18px;
+                box-shadow: 0 15px 25px rgba(0,0,0,0.06);
+                border-bottom: 1px solid var(--border-color);
+            }
+        }
+
+        /* Scroll-reveal animation used by Services, Testimonials & Projects */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>  
+
+</head>  
+<body>  
+
+    <nav>  
+        <div class="container" style="display:flex; justify-content:space-between; width:100%; align-items:center;">  
+            <a href="#" class="logo">Noor<span>.Strategy</span></a>  
+            <ul class="nav-links">  
+                <li><a href="#home">Home</a></li>  
+                <li><a href="#journey">About</a></li>  
+                <li><a href="#projects">Projects</a></li>  
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#services">Services</a></li>  
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#faq">FAQs</a></li>  
+                <li><a href="#contact" class="btn btn-primary" style="color:white; padding: 10px 20px;">Contact</a></li>  
+            </ul>  
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>  
+            </div>
+        </div>  
+    </nav>  
+
+    <header class="hero" id="home">  
+        <div class="container">  
+            <div class="hero-grid">  
+                <div class="hero-content">  
+                    <h5 style="color: var(--accent); letter-spacing: 2px;">SEO & DIGITAL MARKETING</h5>  
+                    <h1>Strategic Growth for <span>Modern Brands.</span></h1>  
+                    <p style="margin-bottom: 30px; color: var(--text-dim);">Hi, I'm Noor, an SEO strategist who loves solving the puzzle of search rankings. From technical audits to content optimization and link building, I focus on strategies that actually move the needle, not just vanity metrics.</p>  
+                    <a href="https://wa.me/923355613388" class="btn btn-primary">Start Your Project</a>  
+                </div>  
+                <div class="hero-image">  
+                    <img src="https://img.freepik.com/free-photo/front-view-woman-posing-with-finger-close-face-copy-space_23-2148426361.jpg?w=740" alt="Noor Fatima Siddiqui Professional Digital Marketer">  
+                </div>  
+            </div>  
+        </div>  
+    </header>  
+
+    <section id="journey">  
+        <div class="container">  
+            <div class="section-title">  
+                <h2>About My Journey</h2>  
+                <div class="bar"></div>  
+            </div>  
+            <div class="journey-grid">  
+                <div class="journey-text-box">  
+                    <span id="typing-text"></span><span class="cursor">|</span>  
+                </div>  
+                <ul class="journey-points">  
+                    <li><i class="fas fa-chart-line"></i> Data-Driven Growth Strategies</li>  
+                    <li><i class="fas fa-search-dollar"></i> E-commerce & Content SEO</li>  
+                    <li><i class="fas fa-lightbulb"></i> Creative Marketing Solutions</li>  
+                </ul>  
+            </div>  
+        </div>  
+    </section>  
+
+    <section id="expertise" style="background: var(--bg-main);">  
+        <div class="container">  
+            <div class="section-title">  
+                <h2>Technical Expertise</h2>  
+                <div class="bar"></div>  
+            </div>  
+            <div class="skills-grid">  
+                <div class="skill-item">
+                    <i class="fas fa-search"></i>
+                    <p>Technical SEO</p>
+                    <div class="progress-bar"><div class="progress-fill" data-width="95"></div></div>
+                </div>  
+                <div class="skill-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <p>Google Analytics</p>
+                    <div class="progress-bar"><div class="progress-fill" data-width="90"></div></div>
+                </div>  
+                <div class="skill-item">
+                    <i class="fas fa-code"></i>
+                    <p>Semantic HTML</p>
+                    <div class="progress-bar"><div class="progress-fill" data-width="85"></div></div>
+                </div>  
+                <div class="skill-item">
+                    <i class="fas fa-ad"></i>
+                    <p>PPC Strategy</p>
+                    <div class="progress-bar"><div class="progress-fill" data-width="80"></div></div>
+                </div>  
+                <div class="skill-item">
+                    <i class="fas fa-pen-nib"></i>
+                    <p>Content Opt.</p>
+                    <div class="progress-bar"><div class="progress-fill" data-width="92"></div></div>
+                </div>  
+                <div class="skill-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <p>UI/UX Audit</p>
+                    <div class="progress-bar"><div class="progress-fill" data-width="78"></div></div>
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+
+    <section id="tools">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tools I Use</h2>
+                <div class="bar"></div>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-item reveal"><i class="fas fa-link"></i><p>Ahrefs</p></div>
+                <div class="tool-item reveal"><i class="fas fa-chart-line"></i><p>SEMrush</p></div>
+                <div class="tool-item reveal"><i class="fas fa-spider"></i><p>Screaming Frog</p></div>
+                <div class="tool-item reveal"><i class="fas fa-chart-pie"></i><p>Google Analytics 4</p></div>
+                <div class="tool-item reveal"><i class="fab fa-google"></i><p>Search Console</p></div>
+                <div class="tool-item reveal"><i class="fas fa-tags"></i><p>Google Tag Manager</p></div>
+                <div class="tool-item reveal"><i class="fas fa-trophy"></i><p>Rank Math</p></div>
+                <div class="tool-item reveal"><i class="fas fa-circle-check"></i><p>Yoast SEO</p></div>
+                <div class="tool-item reveal"><i class="fab fa-wordpress"></i><p>WordPress</p></div>
+                <div class="tool-item reveal"><i class="fas fa-bullseye"></i><p>Google Ads</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">  
+        <div class="container">  
+            <div class="section-title">  
+                <h2>Professional Projects</h2>  
+                <div class="bar"></div>  
+            </div>  
+            <div class="projects-grid">  
+                <div class="project-card">  
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="SEO Traffic Analysis Dashboard" class="project-img" loading="lazy">  
+                    <div class="project-info">  
+                        <span class="project-tag">E-commerce SEO</span>  
+                        <h3>Store Traffic Boost</h3>  
+                        <p>Increased organic traffic by 150% through technical audits and keyword optimization.</p>  
+                    </div>  
+                </div>  
+                <div class="project-card">  
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" alt="Digital Marketing Growth Strategy" class="project-img" loading="lazy">  
+                    <div class="project-info">  
+                        <span class="project-tag">Data Strategy</span>  
+                        <h3>Analytics Integration</h3>  
+                        <p>Set up advanced tracking and custom dashboards to improve ROI measurement.</p>  
+                    </div>  
+                </div>  
+                <div class="project-card">  
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop" alt="Search Engine Optimization Content Strategy" class="project-img" loading="lazy">  
+                    <div class="project-info">  
+                        <span class="project-tag">Content SEO</span>  
+                        <h3>Authority Building</h3>  
+                        <p>Developed a semantic strategy that ranked 20+ high-volume keywords on Page 1.</p>  
+                    </div>  
+                </div>  
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background: var(--bg-main);">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+                <div class="bar"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <i class="fas fa-map-marker-alt" style="font-size:2.2rem; color:var(--accent); margin-bottom:15px;"></i>
+                    <h3 style="margin-bottom:10px;">Local SEO & GBP Optimization</h3>
+                    <p style="color:var(--text-dim); font-size:0.95rem;">Optimizing Google Business Profiles and local citations to help brands rank in the map pack and drive nearby customers.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-cogs" style="font-size:2.2rem; color:var(--accent); margin-bottom:15px;"></i>
+                    <h3 style="margin-bottom:10px;">Technical SEO Audits</h3>
+                    <p style="color:var(--text-dim); font-size:0.95rem;">In-depth site audits covering crawlability, site speed, schema markup, and core web vitals to remove ranking barriers.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-feather-alt" style="font-size:2.2rem; color:var(--accent); margin-bottom:15px;"></i>
+                    <h3 style="margin-bottom:10px;">Content Strategy & Copywriting</h3>
+                    <p style="color:var(--text-dim); font-size:0.95rem;">Semantic, NLP-informed content built around real search intent, written to rank and to convert.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-shopping-cart" style="font-size:2.2rem; color:var(--accent); margin-bottom:15px;"></i>
+                    <h3 style="margin-bottom:10px;">E-commerce SEO</h3>
+                    <p style="color:var(--text-dim); font-size:0.95rem;">Category and product page optimization, structured data, and conversion-focused UX for online stores.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-bullhorn" style="font-size:2.2rem; color:var(--accent); margin-bottom:15px;"></i>
+                    <h3 style="margin-bottom:10px;">PPC Campaign Management</h3>
+                    <p style="color:var(--text-dim); font-size:0.95rem;">Data-backed paid search campaigns designed to lower cost-per-acquisition and scale qualified traffic.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-chart-bar" style="font-size:2.2rem; color:var(--accent); margin-bottom:15px;"></i>
+                    <h3 style="margin-bottom:10px;">Analytics & Reporting</h3>
+                    <p style="color:var(--text-dim); font-size:0.95rem;">Custom GA4 and Search Console dashboards that turn raw data into clear, actionable growth decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <div class="bar"></div>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <p style="color:var(--text-dim);">Noor rebuilt our local SEO from the ground up. Within three months our Google Business Profile calls doubled and we finally started showing up in the map pack.</p>
+                    <div class="testimonial-user">
+                        <img src="https://i.pravatar.cc/150?img=32" alt="Client photo">
+                        <div>
+                            <h5>Ahmed Raza</h5>
+                            <p>Owner, Raaz Constructions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <p style="color:var(--text-dim);">Extremely detail-oriented and easy to work with. Our organic traffic grew steadily every month and the reporting made it easy to see exactly where the ROI was coming from.</p>
+                    <div class="testimonial-user">
+                        <img src="https://i.pravatar.cc/150?img=47" alt="Client photo">
+                        <div>
+                            <h5>Sarah Mitchell</h5>
+                            <p>Marketing Lead, GUTA Enterprise</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <p style="color:var(--text-dim);">Our e-commerce store went from barely ranking to consistently landing on page one for our core keywords. Noor genuinely understands both SEO and conversion.</p>
+                    <div class="testimonial-user">
+                        <img src="https://i.pravatar.cc/150?img=15" alt="Client photo">
+                        <div>
+                            <h5>Bilal Hussain</h5>
+                            <p>Founder, MegaTel Store</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" style="background: var(--bg-main);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <div class="bar"></div>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What services do you offer?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I offer local SEO, technical SEO audits, content strategy, e-commerce SEO, PPC management, and analytics reporting tailored to each client's goals.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does it take to see SEO results?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most clients start seeing measurable movement within 60 to 90 days, with stronger compounding results over 4 to 6 months depending on competition and site history.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you work with international clients?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, I regularly manage SEO for clients across the US, UK, and UAE markets, working around their time zones for calls and reporting.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can you help with Google Business Profile issues?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. I handle GBP audits, category corrections, NAP consistency fixes, and image optimization to improve local visibility.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can I get started?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Just reach out via WhatsApp, phone, or email below and I will schedule a quick call to understand your goals and put together a plan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <div class="bar"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Phone</h4>
+                    <a href="tel:+923355613388">+92 335 5613388</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email</h4>
+                    <a href="mailto:noorfatimasiddiqui24@gmail.com">noorfatimasiddiqui24@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h4>WhatsApp</h4>
+                    <a href="https://wa.me/923355613388" target="_blank" rel="noopener">Chat Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/923355613388" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="footer-year"></span> Noor Fatima Siddiqui. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        /* ---------- Theme Toggle (with persistence) ---------- */
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = themeToggleBtn.querySelector('i');
+        const root = document.documentElement;
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                root.setAttribute('data-theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                root.removeAttribute('data-theme');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        applyTheme(savedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = root.getAttribute('data-theme') === 'dark';
+            const newTheme = isDark ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        /* ---------- Mobile Hamburger Menu ---------- */
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const hamburgerIcon = hamburger.querySelector('i');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const isOpen = navLinks.classList.contains('active');
+            hamburgerIcon.classList.toggle('fa-bars', !isOpen);
+            hamburgerIcon.classList.toggle('fa-times', isOpen);
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburgerIcon.classList.remove('fa-times');
+                hamburgerIcon.classList.add('fa-bars');
+            });
+        });
+
+        /* ---------- Typing Effect (About My Journey) ---------- */
+        const typingTarget = document.getElementById('typing-text');
+        const typingText = "Aspiring Digital Marketing & SEO Specialist with expertise in On-Page SEO, Off-Page SEO, Technical SEO, Keyword Research, Competitor Analysis, SEO Audits, Link Building, Backlink Outreach, Guest Posting, Niche Edits, Local SEO, E-commerce SEO, Content Optimization, and Search Engine Ranking Strategies. Skilled in driving organic traffic, improving website visibility, and building high-quality backlinks through effective outreach campaigns. Passionate about staying updated with the latest SEO trends, applying data-driven strategies, and helping businesses achieve sustainable online growth and long-term digital success.";
+
+        let charIndex = 0;
+
+        function typeLoop() {
+            if (charIndex <= typingText.length) {
+                typingTarget.textContent = typingText.substring(0, charIndex);
+                charIndex++;
+                setTimeout(typeLoop, 45);
+            }
+        }
+        typeLoop();
+
+        /* ---------- Progress Bar Animation (Technical Expertise) ---------- */
+        const progressFills = document.querySelectorAll('.progress-fill');
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const fill = entry.target;
+                    fill.style.width = fill.getAttribute('data-width') + '%';
+                    progressObserver.unobserve(fill);
+                }
+            });
+        }, { threshold: 0.4 });
+        progressFills.forEach(fill => progressObserver.observe(fill));
+
+        /* ---------- Scroll Reveal (Services, Testimonials, Projects) ---------- */
+        document.querySelectorAll('.project-card, .service-card, .testimonial-card, .tool-item').forEach(el => {
+            el.classList.add('reveal');
+        });
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        /* ---------- FAQ Accordion Toggle ---------- */
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        /* ---------- Footer Year ---------- */
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
